@@ -2,43 +2,38 @@ function FormattedDate(props) {
     return <h2>It is {props.date.toLocaleTimeString()}</h2>
 }
 
-class Clock extends React.Component {
+class Toggle extends React.Component {
     
     constructor(props) {
         super(props);
-        this.state = { date: new Date()};
+        this.state = { 
+            isToggledOn: true,
+
+        };
+
+        this.handleClick = this.handleClick.bind(this);
     }
 
-    componentDidMount() {
-        this.timerID = setInterval(
-            () => this.tick(),
-            1000
-            );
-    }
-
-    componentWillUnmount(){
-        clearInterval(this.timerID);
-    }
-
-    tick() {
-        this.setState({ date: new Date()});
+    handleClick() {
+        this.setState(
+            state => ({
+                isToggledOn: !state.isToggledOn
+            })
+        );
     }
 
     render() {
         return (
         <div>
-            <h1>Hello, World</h1>
-            <FormattedDate date = {this.state.date} />
+            <button onClick={this.handleClick}>
+                { this.state.isToggledOn ? 'ON' : 'OFF'}
+            </button>
         </div>
         );
     }
-
-    
-
-
 }
 
 ReactDOM.render(
-    <Clock  />,
+    <Toggle  />,
     document.getElementById('root')
 )
