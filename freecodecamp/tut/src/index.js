@@ -11,32 +11,31 @@ import  './index.css'
 // formatting
 
 
-const firstBook = {
+const books = [
+  {
   img: 'https://images-na.ssl-images-amazon.com/images/I/517h-u1AQlL._SX482_BO1,204,203,200_.jpg', 
   title: 'I Love You to the Moon and Back', 
   author: 'Amelia Hepworth'
-}
-
-const secondBook = {
+  },
+  {
   img: 'https://images-na.ssl-images-amazon.com/images/I/51wGNqaSIbL._SX373_BO1,204,203,200_.jpg', 
   title: 'What Should Danny Do?', 
   author: 'Adir Levy'
-}
+  }
+];
+
+const names = ['shlomy', 'naama', 'yosef'];
+
+const newNames = names.map( name => {
+  return <h1>{name}</h1>
+})
+
+console.log(newNames)
 
 function BookList() {
   return (
     <section className='booklist'>
-      <Book 
-        img={firstBook.img} 
-        title={firstBook.title}
-        author={firstBook.author}
-        />
-
-        <Book 
-        img={secondBook.img} 
-        title={secondBook.title}
-        author={secondBook.author}
-        />
+      {newNames}
     </section>
   )
 }
