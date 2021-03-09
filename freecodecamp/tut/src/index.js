@@ -10,24 +10,44 @@ import  './index.css'
 // close every element
 // formatting
 
+
+const firstBook = {
+  img: 'https://images-na.ssl-images-amazon.com/images/I/517h-u1AQlL._SX482_BO1,204,203,200_.jpg', 
+  title: 'I Love You to the Moon and Back', 
+  author: 'Amelia Hepworth'
+}
+
+const secondBook = {
+  img: 'https://images-na.ssl-images-amazon.com/images/I/51wGNqaSIbL._SX373_BO1,204,203,200_.jpg', 
+  title: 'What Should Danny Do?', 
+  author: 'Adir Levy'
+}
+
 function BookList() {
   return (
     <section className='booklist'>
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
+      <Book 
+        img={firstBook.img} 
+        title={firstBook.title}
+        author={firstBook.author}
+        />
+
+        <Book 
+        img={secondBook.img} 
+        title={secondBook.title}
+        author={secondBook.author}
+        />
     </section>
   )
 }
 
-const Book = () => {
+const Book = (props) => {
+  const { img, title, author} = props
   return (
     <article className='book'>
-      <Image />
-      <Title />
-      <Author />
+      <img src={img} alt=''/>
+      <h1>{title}</h1>
+      <h4>{author}</h4>
     </article>
     
   );
