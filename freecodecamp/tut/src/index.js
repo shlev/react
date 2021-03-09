@@ -13,11 +13,13 @@ import  './index.css'
 
 const books = [
   {
+    id: 1,
   img: 'https://images-na.ssl-images-amazon.com/images/I/517h-u1AQlL._SX482_BO1,204,203,200_.jpg', 
   title: 'I Love You to the Moon and Back', 
   author: 'Amelia Hepworth'
   },
   {
+    id:2,
   img: 'https://images-na.ssl-images-amazon.com/images/I/51wGNqaSIbL._SX373_BO1,204,203,200_.jpg', 
   title: 'What Should Danny Do?', 
   author: 'Adir Levy'
@@ -35,13 +37,18 @@ console.log(newNames)
 function BookList() {
   return (
     <section className='booklist'>
-      {newNames}
+     { books.map( (book)  => {
+        return (
+          <Book key= {book.id} book= {book} />
+        );
+
+     })}
     </section>
-  )
+  );
 }
 
 const Book = (props) => {
-  const { img, title, author} = props
+  const { img, title, author} = props.book
   return (
     <article className='book'>
       <img src={img} alt=''/>
