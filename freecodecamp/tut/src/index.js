@@ -1,6 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import  './index.css'
+
+import {books} from './books';
+
+import Book from './Book';
 
 //JSX Rules
 // return single element
@@ -11,20 +16,7 @@ import  './index.css'
 // formatting
 
 
-const books = [
-  {
-    id: 1,
-  img: 'https://images-na.ssl-images-amazon.com/images/I/517h-u1AQlL._SX482_BO1,204,203,200_.jpg', 
-  title: 'I Love You to the Moon and Back', 
-  author: 'Amelia Hepworth'
-  },
-  {
-    id:2,
-  img: 'https://images-na.ssl-images-amazon.com/images/I/51wGNqaSIbL._SX373_BO1,204,203,200_.jpg', 
-  title: 'What Should Danny Do?', 
-  author: 'Adir Levy'
-  }
-];
+
 
 const names = ['shlomy', 'naama', 'yosef'];
 
@@ -44,18 +36,6 @@ function BookList() {
 
      })}
     </section>
-  );
-}
-
-const Book = (props) => {
-  const { img, title, author} = props
-  return (
-    <article className='book'>
-      <img src={img} alt=''/>
-      <h1>{title}</h1>
-      <h4>{author}</h4>
-    </article>
-    
   );
 }
 
